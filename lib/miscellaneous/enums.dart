@@ -34,3 +34,9 @@ enum MarkerType {
   fill,
   border,
 }
+
+enum AgeType {
+  young,
+  adult,
+  mature,
+}
