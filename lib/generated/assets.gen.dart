@@ -60,6 +60,8 @@ class $AssetsGraphicsIconsGen {
 
   String get about => 'assets/graphics/icons/about.svg';
 
+  String get age => 'assets/graphics/icons/age.svg';
+
   String get animal => 'assets/graphics/icons/animal.svg';
 
   String get back => 'assets/graphics/icons/back.svg';
@@ -76,8 +78,6 @@ class $AssetsGraphicsIconsGen {
 
   String get coffee => 'assets/graphics/icons/coffee.svg';
 
-  String get discord => 'assets/graphics/icons/discord.svg';
-
   String get drinking => 'assets/graphics/icons/drinking.svg';
 
   String get eating => 'assets/graphics/icons/eating.svg';
@@ -85,6 +85,8 @@ class $AssetsGraphicsIconsGen {
   String get filter => 'assets/graphics/icons/filter.svg';
 
   String get firearm => 'assets/graphics/icons/firearm.svg';
+
+  String get gender => 'assets/graphics/icons/gender.svg';
 
   String get github => 'assets/graphics/icons/github.svg';
 
@@ -112,8 +114,11 @@ class $AssetsGraphicsIconsGen {
 
   String get settings => 'assets/graphics/icons/settings.svg';
 
+  String get trophyRating => 'assets/graphics/icons/trophy_rating.svg';
+
   List<String> get values => [
         about,
+        age,
         animal,
         back,
         cabin,
@@ -122,11 +127,11 @@ class $AssetsGraphicsIconsGen {
         cancel,
         check,
         coffee,
-        discord,
         drinking,
         eating,
         filter,
         firearm,
+        gender,
         github,
         huntingStand,
         huntingTable,
@@ -139,7 +144,8 @@ class $AssetsGraphicsIconsGen {
         reserve,
         resting,
         search,
-        settings
+        settings,
+        trophyRating
       ];
 }
 
@@ -507,7 +513,7 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size});
+  const AssetGenImage(this._assetName, {this.size = null});
 
   final String _assetName;
 
