@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
@@ -409,6 +410,19 @@ class ActivityMapState extends State<ActivityMap> {
     );
   }
 
+  Widget _buildHelp() {
+    return Container(
+      color: Interface.gradientGreen,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.fromLTRB(30, 5, 30, 5),
+      child: WidgetText(
+        tr("COMPANION:MAP_LONG_TAP").toUpperCase(),
+        color: Interface.primaryLight.withOpacity(0.8),
+        style: Style.normal.s8.w600,
+      ),
+    );
+  }
+
   Widget _buildWidgets() {
     Orientation orientation = MediaQuery.of(context).orientation;
     _getScreenSize();
@@ -430,6 +444,7 @@ class ActivityMapState extends State<ActivityMap> {
                 ],
               ),
             ),
+            _buildHelp(),
           ],
         ),
       ),
