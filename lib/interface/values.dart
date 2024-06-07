@@ -1,6 +1,8 @@
 class Values {
   static const String version = "1.0.0";
 
+  static const String customLocations = "custom-locations";
+
   static const double appBar = 90;
   static const double snackBar = 75;
   static const double searchBar = 40;

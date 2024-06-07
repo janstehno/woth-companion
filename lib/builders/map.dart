@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wothcompanion/activities/map.dart';
 import 'package:wothcompanion/builders/builder.dart';
 import 'package:wothcompanion/helpers/map.dart';
+import 'package:wothcompanion/model/exportables/custom_location.dart';
 import 'package:wothcompanion/model/map/animal_location.dart';
 import 'package:wothcompanion/model/map/area_location.dart';
 import 'package:wothcompanion/model/map/building_location.dart';
@@ -36,7 +37,8 @@ class BuilderMapState extends BuilderBuilderState {
     Set<AnimalLocation> animalsLocations = snapshot.data!["animalsLocations"] ?? {};
     Set<BuildingLocation> buildingsLocations = snapshot.data!["buildingsLocations"] ?? {};
     Set<AreaLocation> areasLocations = snapshot.data!["areasLocations"] ?? {};
-    _helperMap.setup(animalsLocations, buildingsLocations, areasLocations);
+    Set<CustomLocation> customLocations = snapshot.data!["customLocations"] ?? {};
+    _helperMap.setup(animalsLocations, buildingsLocations, areasLocations, customLocations);
   }
 
   @override
@@ -47,6 +49,8 @@ class BuilderMapState extends BuilderBuilderState {
     updateProgress("buildingsLocations", buildingsLocations);
     Set<AreaLocation> areasLocations = await _helperMap.readAreasLocations();
     updateProgress("areasLocations", areasLocations);
+    Set<CustomLocation> customLocations = await _helperMap.readFile();
+    updateProgress("customLocations", customLocations);
 
     await Future.delayed(const Duration(seconds: 1), () {});
     return loadedData;

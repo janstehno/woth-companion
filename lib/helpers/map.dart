@@ -3,7 +3,10 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:wothcompanion/generated/assets.gen.dart';
 import 'package:wothcompanion/helpers/json.dart';
+import 'package:wothcompanion/interface/values.dart';
 import 'package:wothcompanion/miscellaneous/enums.dart';
+import 'package:wothcompanion/miscellaneous/utils.dart';
+import 'package:wothcompanion/model/exportables/custom_location.dart';
 import 'package:wothcompanion/model/map/animal_location.dart';
 import 'package:wothcompanion/model/map/area_location.dart';
 import 'package:wothcompanion/model/map/building_location.dart';
@@ -13,6 +16,7 @@ class HelperMap {
   final Set<AnimalLocation> _animalsLocations = {};
   final Set<BuildingLocation> _buildingsLocations = {};
   final Set<AreaLocation> _areasLocations = {};
+  final Set<CustomLocation> _customLocations = {};
 
   AnimalLocation? _lastAnimalLocation;
 
@@ -28,16 +32,20 @@ class HelperMap {
 
   Set<AreaLocation> get areasLocations => _areasLocations;
 
+  Set<CustomLocation> get customLocations => _customLocations;
+
   Reserve get reserve => _reserve;
 
   void setup(
     Set<AnimalLocation> animalsLocations,
     Set<BuildingLocation> buildingsLocations,
     Set<AreaLocation> areasLocations,
+    Set<CustomLocation> customLocations,
   ) {
     _animalsLocations.addAll(animalsLocations);
     _buildingsLocations.addAll(buildingsLocations);
     _areasLocations.addAll(areasLocations);
+    _customLocations.addAll(customLocations);
   }
 
   Set<AnimalLocation> get shownAnimalsLocations {
@@ -180,5 +188,34 @@ class HelperMap {
         animalsLocation.show();
       }
     }
+  }
+
+  CustomLocation? getCustomLocation(String id) => customLocations.firstWhereOrNull((e) => e.id == id);
+
+  bool isCustomized(String id) => getCustomLocation(id) != null;
+
+  void save([CustomLocation? customLocation]) {
+    if (customLocation != null) _customLocations.add(customLocation);
+    _writeFile();
+  }
+
+  void _writeFile() async {
+    final String content = parseToJson();
+    Utils.writeFile(content, Values.customLocations);
+  }
+
+  Future<Set<CustomLocation>> readFile() async {
+    try {
+      final data = await Utils.readFile(Values.customLocations);
+      final list = json.decode(data) as List<dynamic>;
+      final Set<CustomLocation> customLocations = list.map((e) => CustomLocation.fromJson(e)).toSet();
+      return customLocations;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  String parseToJson() {
+    return HelperJSON.listToJson(_customLocations);
   }
 }
