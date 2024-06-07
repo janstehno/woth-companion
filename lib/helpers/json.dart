@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/services.dart' as root_bundle;
 import 'package:wothcompanion/generated/assets.gen.dart';
@@ -196,5 +197,30 @@ class HelperJSON {
     final data = await getData(Assets.raw.firearms);
     final list = json.decode(data) as List<dynamic>;
     return list.map((e) => Firearm.fromJson(e)).toSet();
+  }
+
+  static String listToJson(Set<dynamic> list) {
+    String parsed = "[";
+    int i = 0;
+    for (dynamic item in list) {
+      parsed += item.toString();
+      if (i != list.length - 1) {
+        parsed += ",";
+      }
+      i++;
+    }
+    parsed += "]";
+    return parsed;
+  }
+
+  static Future<String> fileToJson(File file) async {
+    try {
+      final String contents;
+      await file.exists() ? contents = await file.readAsString() : contents = "[]";
+      if (contents.startsWith("[") && contents.endsWith("]")) return contents;
+      return "[]";
+    } catch (e) {
+      return e.toString();
+    }
   }
 }
