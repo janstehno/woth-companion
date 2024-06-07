@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
 import 'package:wothcompanion/activities/detail/map.dart';
+import 'package:wothcompanion/activities/modify/add/custom_location.dart';
+import 'package:wothcompanion/activities/modify/edit/custom_location.dart';
 import 'package:wothcompanion/generated/assets.gen.dart';
 import 'package:wothcompanion/helpers/map.dart';
 import 'package:wothcompanion/interface/graphics.dart';
@@ -9,6 +11,7 @@ import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
 import 'package:wothcompanion/miscellaneous/enums.dart';
 import 'package:wothcompanion/miscellaneous/projection.dart';
+import 'package:wothcompanion/model/exportables/custom_location.dart';
 import 'package:wothcompanion/model/map/animal_location.dart';
 import 'package:wothcompanion/model/map/area_location.dart';
 import 'package:wothcompanion/model/map/building_location.dart';
@@ -258,14 +261,35 @@ class ActivityMapState extends State<ActivityMap> {
     return false;
   }
 
+  Widget _buildActivityModify(AnimalLocation animalLocation) {
+    if (widget.helperMap.isCustomized(animalLocation.id)) {
+      return ActivityEditCustomLocation(
+        id: animalLocation.id,
+        helperMap: widget.helperMap,
+        onSuccess: () => setState(() {}),
+      );
+    } else {
+      return ActivityAddCustomLocation(
+        id: animalLocation.id,
+        helperMap: widget.helperMap,
+        onSuccess: () => setState(() {}),
+      );
+    }
+  }
+
   Widget _buildAnimalLocation(AnimalLocation animalLocation) {
+    CustomLocation? customLocation = widget.helperMap.getCustomLocation(animalLocation.id);
     Offset offset = _mapTransformer.toOffset(animalLocation.coordinates);
     if (_inView(offset, _animalMarkerSize, _animalMarkerSize)) {
       return WidgetMarkerAnimal(
         animalLocation,
         offset: offset,
         size: _animalMarkerSize,
+        color: customLocation != null ? customLocation.color : Interface.primaryLight,
         onTap: () => setState(() => widget.helperMap.showOrHideAnimalsZones(animalLocation)),
+        onLongTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (e) => _buildActivityModify(animalLocation)));
+        },
       );
     }
     return const SizedBox.shrink();
