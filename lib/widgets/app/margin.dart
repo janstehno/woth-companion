@@ -37,6 +37,28 @@ class WidgetMargin extends StatelessWidget {
         ),
         _child = child;
 
+  WidgetMargin.h(
+    double horizontal, {
+    super.key,
+    Color? background,
+    Alignment? alignment,
+    required Widget child,
+  })  : _background = background,
+        _alignment = alignment,
+        _margin = EdgeInsets.symmetric(horizontal: horizontal),
+        _child = child;
+
+  WidgetMargin.v(
+    double vertical, {
+    super.key,
+    Color? background,
+    Alignment? alignment,
+    required Widget child,
+  })  : _background = background,
+        _alignment = alignment,
+        _margin = EdgeInsets.symmetric(vertical: vertical),
+        _child = child;
+
   WidgetMargin.top(
     double top, {
     super.key,

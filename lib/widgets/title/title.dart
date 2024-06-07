@@ -19,13 +19,17 @@ class WidgetTitle extends StatelessWidget {
 
   double get height => Values.title;
 
+  Color get color => Interface.primaryLight;
+
+  Color get subColor => Interface.disabled;
+
   Color get background => Interface.title;
 
   Widget _buildText() {
     if (_subtext.isEmpty) {
       return WidgetText(
         _text.toUpperCase(),
-        color: Interface.primaryLight,
+        color: color,
         style: Style.condensed.s22.w400,
       );
     }
@@ -36,12 +40,12 @@ class WidgetTitle extends StatelessWidget {
       children: [
         WidgetText(
           _text.toUpperCase(),
-          color: Interface.primaryLight,
+          color: color,
           style: Style.condensed.s22.w400,
         ),
         WidgetText(
           _subtext,
-          color: Interface.disabled,
+          color: subColor,
           style: Style.normal.s12.w400,
         )
       ],

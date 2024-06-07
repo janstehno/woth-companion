@@ -12,13 +12,15 @@ class WidgetButtonIcon extends WidgetButton {
   const WidgetButtonIcon(
     String icon, {
     super.key,
+    double? width,
     Color? color,
     double? size,
     super.background,
     required super.onTap,
   })  : _icon = icon,
         _color = color,
-        _size = size;
+        _size = size,
+        super(width: width ?? Values.tapSize);
 
   double get iconSize => _size ?? Values.iconSize;
 

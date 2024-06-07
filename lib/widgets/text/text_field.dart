@@ -5,15 +5,18 @@ import 'package:wothcompanion/interface/style.dart';
 class WidgetTextField extends StatelessWidget {
   final bool _decimal;
   final bool _numberOnly;
+  final int _maxLines;
   final TextEditingController _controller;
 
   const WidgetTextField({
     super.key,
     bool decimal = true,
     bool numberOnly = false,
+    int maxLines = 1,
     required TextEditingController controller,
   })  : _decimal = decimal,
         _numberOnly = numberOnly,
+        _maxLines = maxLines,
         _controller = controller;
 
   TextInputType _buildInputType() {
@@ -29,7 +32,7 @@ class WidgetTextField extends StatelessWidget {
   Widget _buildWidgets() {
     return TextField(
       keyboardType: _buildInputType(),
-      maxLines: 1,
+      maxLines: _maxLines,
       cursorHeight: 25,
       controller: _controller,
       textAlign: TextAlign.left,
