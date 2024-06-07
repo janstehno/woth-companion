@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Values {
   static const String version = "1.0.0";
 
@@ -26,4 +28,15 @@ class Values {
   static const double energyTolerance = 0.05;
   static const List<double> energyMeters = [50, 100, 150, 200, 300];
   static const List<double> energyYards = [54.68, 109.36, 164.04, 218.72, 328.08];
+
+  static const List<Color> colors = [
+    Color(0xFFE53935),
+    Color(0xFFFF9800),
+    Color(0xFFFDD835),
+    Color(0xFF9CCC65),
+    Color(0xFF4CAF50),
+    Color(0xFF29B6F6),
+    Color(0xFF1565C0),
+    Color(0xFF9575CD),
+  ];
 }
