@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Values {
-  static const String version = "1.0.0";
+  static const String version = "1.0.1";
 
   static const String customLocations = "custom-locations";
 
