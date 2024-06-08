@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/activities/modify/add/custom_location.dart';
+import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/model/exportables/custom_location.dart';
+import 'package:wothcompanion/widgets/title/title_tap.dart';
 
 class ActivityEditCustomLocation extends ActivityAddCustomLocation {
   const ActivityEditCustomLocation({
@@ -35,10 +38,29 @@ class ActivityEditCustomLocationState extends ActivityAddCustomLocationState {
     _customLocation.setColor(color);
     _customLocation.setAnimals(animals);
     helperMap.save();
+    onConfirm();
   }
 
   void onRemove() {
     helperMap.customLocations.removeWhere((e) => e.id == _location);
     helperMap.save();
+    onConfirm();
+  }
+
+  Widget _buildRemove() {
+    return WidgetTitleTap(
+      tr("UI:CLEAR"),
+      color: Interface.primaryDark,
+      background: Interface.snackError,
+      onTap: () => onRemove(),
+    );
+  }
+
+  @override
+  List<Widget> buildBody() {
+    return [
+      ...super.buildBody(),
+      _buildRemove(),
+    ];
   }
 }

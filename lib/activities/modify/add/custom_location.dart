@@ -14,6 +14,7 @@ import 'package:wothcompanion/widgets/button/button_text.dart';
 import 'package:wothcompanion/widgets/parts/modify/custom_location_animal.dart';
 import 'package:wothcompanion/widgets/text/text_field.dart';
 import 'package:wothcompanion/widgets/title/title_sub.dart';
+import 'package:wothcompanion/widgets/title/title_tap.dart';
 
 class ActivityAddCustomLocation extends ActivityModify {
   final String _id;
@@ -58,13 +59,7 @@ class ActivityAddCustomLocationState extends ActivityModifyState {
 
   void onSuccess() {
     helperMap.save(_newCustomLocation);
-  }
-
-  @override
-  void onConfirm() {
-    onSuccess();
-    widget.onSuccess();
-    Navigator.pop(context);
+    onConfirm();
   }
 
   Widget _buildColor(double width, Color color, bool chosen) {
@@ -229,12 +224,22 @@ class ActivityAddCustomLocationState extends ActivityModifyState {
     ];
   }
 
+  Widget _buildConfirm() {
+    return WidgetTitleTap(
+      tr("UI:CONFIRM"),
+      color: Interface.primaryDark,
+      background: Interface.primary,
+      onTap: () => onSuccess(),
+    );
+  }
+
   @override
   List<Widget> buildBody() {
     return [
       ..._listColor(),
       ..._listCustomLocationAnimals(),
       ..._listDescription(),
+      _buildConfirm(),
     ];
   }
 }
