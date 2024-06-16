@@ -20,7 +20,7 @@ abstract class WidgetButton extends StatelessWidget {
 
   Color get buttonBackground => _background ?? Interface.primary;
 
-  double? get buttonWidth => _width;
+  double? get buttonWidth => _width == 0 ? null : _width;
 
   double get buttonHeight => Values.tapSize;
 
