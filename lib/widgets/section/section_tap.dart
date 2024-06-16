@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/miscellaneous/values.dart';
-import 'package:wothcompanion/widgets/app/padding.dart';
 
 abstract class WidgetSectionTap extends StatelessWidget {
   final String _text;
@@ -27,12 +26,10 @@ abstract class WidgetSectionTap extends StatelessWidget {
       onTap: () {
         if (_onTap != null) _onTap!();
       },
-      child: SizedBox(
+      child: Container(
         height: height,
-        child: WidgetPadding.h30(
-          background: _background,
-          child: buildCenter(),
-        ),
+        color: _background,
+        child: buildCenter(),
       ),
     );
   }

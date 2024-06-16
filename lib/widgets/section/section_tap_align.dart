@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
+import 'package:wothcompanion/widgets/app/padding.dart';
 import 'package:wothcompanion/widgets/indicator/indicator.dart';
 import 'package:wothcompanion/widgets/section/section_tap.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
@@ -33,15 +34,17 @@ class WidgetSectionTapAlign extends WidgetSectionTap {
 
   @override
   Widget buildCenter() {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: _indicatorRight ? MainAxisAlignment.end : MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        if (_indicatorRight) Expanded(child: _buildText()),
-        WidgetIndicator(active: _active),
-        if (!_indicatorRight) Expanded(child: _buildText()),
-      ],
+    return WidgetPadding.h30(
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: _indicatorRight ? MainAxisAlignment.end : MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (_indicatorRight) Expanded(child: _buildText()),
+          WidgetIndicator(active: _active),
+          if (!_indicatorRight) Expanded(child: _buildText()),
+        ],
+      ),
     );
   }
 }

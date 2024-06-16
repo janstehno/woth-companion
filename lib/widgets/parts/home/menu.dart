@@ -31,7 +31,7 @@ class WidgetSectionMenu extends WidgetSectionTap {
 
   Widget _buildText() {
     return WidgetText(
-      super.text.toUpperCase(),
+      super.text,
       color: Interface.primaryLight,
       style: Style.condensed.s18.w300,
     );
