@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:wothcompanion/generated/assets.gen.dart';
@@ -42,10 +44,24 @@ abstract class BuilderBuilderState extends State<BuilderBuilder> {
     );
   }
 
+  Widget _buildShadow() {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          transform: const GradientRotation(pi / 2),
+          colors: [
+            Interface.dark0D.withOpacity(0.1),
+            Interface.dark0D.withOpacity(0.4),
+            Interface.dark0D.withOpacity(0.6),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildLoadingSpinKit() {
     return WidgetPadding.a30(
-      background: Interface.primaryDark.withOpacity(0.6),
-      alignment: Alignment.bottomRight,
+      alignment: Alignment.bottomCenter,
       child: SpinKitWave(
         size: Values.indicatorSize,
         itemBuilder: (context, index) {
@@ -68,7 +84,13 @@ abstract class BuilderBuilderState extends State<BuilderBuilder> {
             child: Stack(
               children: [
                 _buildLoadingBackground(),
-                _buildLoadingSpinKit(),
+                _buildShadow(),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: _buildLoadingSpinKit(),
+                ),
               ],
             ),
           ),
