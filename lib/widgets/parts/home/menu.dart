@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
 import 'package:wothcompanion/miscellaneous/values.dart';
@@ -9,32 +8,24 @@ import 'package:wothcompanion/widgets/section/section_tap.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
 
 class WidgetSectionMenu extends WidgetSectionTap {
-  final String _icon;
+  final String? _icon;
 
   const WidgetSectionMenu(
     super.text, {
     super.key,
-    required String icon,
+    String? icon,
     required super.onTap,
   })  : _icon = icon,
         super(background: Interface.transparent);
 
   @override
-  double get height => Values.menu;
+  double get height => _icon == null ? Values.menu - 7 : Values.menu;
 
   Widget _buildLine() {
     return Container(
       width: 1,
       height: super.height,
       color: Interface.primary.withOpacity(0.4),
-    );
-  }
-
-  Widget _buildIcon() {
-    return SimpleShadow(
-      sigma: 5,
-      offset: const Offset(-0.3, 0),
-      child: WidgetIconShield(_icon),
     );
   }
 
@@ -46,21 +37,25 @@ class WidgetSectionMenu extends WidgetSectionTap {
     );
   }
 
+  Widget _buildIcon() {
+    return WidgetMargin.right(
+      20,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          _buildLine(),
+          WidgetIconShield(_icon!),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget buildCenter() {
     return Row(
       children: [
-        WidgetMargin.right(
-          20,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              _buildLine(),
-              _buildIcon(),
-            ],
-          ),
-        ),
-        Expanded(child: _buildText())
+        if (_icon != null) _buildIcon(),
+        Expanded(child: _buildText()),
       ],
     );
   }
