@@ -114,6 +114,10 @@ class $AssetsGraphicsIconsGen {
 
   String get settings => 'assets/graphics/icons/settings.svg';
 
+  String get swipeRight => 'assets/graphics/icons/swipe_right.svg';
+
+  String get tap => 'assets/graphics/icons/tap.svg';
+
   String get trophyRating => 'assets/graphics/icons/trophy_rating.svg';
 
   List<String> get values => [
@@ -145,6 +149,8 @@ class $AssetsGraphicsIconsGen {
         resting,
         search,
         settings,
+        swipeRight,
+        tap,
         trophyRating
       ];
 }
