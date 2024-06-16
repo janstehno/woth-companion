@@ -22,6 +22,8 @@ class WidgetButtonIcon extends WidgetButton {
         _size = size,
         super(width: width ?? Values.tapSize);
 
+  String get icon => _icon;
+
   double get iconSize => _size ?? Values.iconSize;
 
   Color get iconColor => _color ?? Interface.primaryDark;

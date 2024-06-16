@@ -18,7 +18,7 @@ class WidgetIconShield extends WidgetIcon {
   Widget _buildShield() {
     return WidgetIcon.withSize(
       Assets.graphics.shapes.shield,
-      size: Values.iconSize + 12,
+      size: Values.iconSize + 7,
       color: background,
     );
   }

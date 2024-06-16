@@ -3,7 +3,7 @@ import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
 import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/app/margin.dart';
-import 'package:wothcompanion/widgets/icon/icon_shield.dart';
+import 'package:wothcompanion/widgets/icon/icon.dart';
 import 'package:wothcompanion/widgets/section/section_tap.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
 
@@ -19,34 +19,13 @@ class WidgetSectionMenu extends WidgetSectionTap {
         super(background: Interface.transparent);
 
   @override
-  double get height => _icon == null ? Values.menu - 7 : Values.menu;
-
-  Widget _buildLine() {
-    return Container(
-      width: 1,
-      height: super.height,
-      color: Interface.primary.withOpacity(0.4),
-    );
-  }
+  double get height => _icon == null ? Values.menu - 10 : Values.menu;
 
   Widget _buildText() {
     return WidgetText(
       super.text,
-      color: Interface.primaryLight,
-      style: Style.condensed.s18.w300,
-    );
-  }
-
-  Widget _buildIcon() {
-    return WidgetMargin.right(
-      20,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          _buildLine(),
-          WidgetIconShield(_icon!),
-        ],
-      ),
+      color: Interface.primaryLight.withOpacity(0.8),
+      style: Style.normal.s18.w400,
     );
   }
 
@@ -54,7 +33,7 @@ class WidgetSectionMenu extends WidgetSectionTap {
   Widget buildCenter() {
     return Row(
       children: [
-        if (_icon != null) _buildIcon(),
+        if (_icon != null) WidgetMargin.right(20, child: WidgetIcon(_icon!, color: Interface.primary)),
         Expanded(child: _buildText()),
       ],
     );
