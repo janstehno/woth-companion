@@ -9,12 +9,11 @@ class Values {
   static const double snackBar = 75;
   static const double searchBar = 40;
 
-  static const double dropDown = 65;
-
   static const double entry = 80;
   static const double title = 70;
   static const double subtitle = 65;
-  static const double section = 60;
+  static const double section = 65;
+  static const double dropDown = 65;
   static const double menu = 45;
 
   static const double tapSize = 35;
