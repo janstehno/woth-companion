@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/interface/interface.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/title/title.dart';
 
 class WidgetSubtitle extends WidgetTitle {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/generated/fonts.gen.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 
 class $StyleNormal {
   const $StyleNormal();

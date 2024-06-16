@@ -10,12 +10,12 @@ import 'package:wothcompanion/activities/settings.dart';
 import 'package:wothcompanion/generated/assets.gen.dart';
 import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
-import 'package:wothcompanion/interface/values.dart';
 import 'package:wothcompanion/miscellaneous/utils.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/app/bar_scroll.dart';
 import 'package:wothcompanion/widgets/app/padding.dart';
-import 'package:wothcompanion/widgets/icons/icon.dart';
-import 'package:wothcompanion/widgets/section/home/menu.dart';
+import 'package:wothcompanion/widgets/icon/icon.dart';
+import 'package:wothcompanion/widgets/parts/home/menu.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
 import 'package:wothcompanion/widgets/text/text_tap.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/interface/interface.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 
 class WidgetDropDown extends StatelessWidget {
   final int _value;

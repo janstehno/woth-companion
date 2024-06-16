@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 import 'package:wothcompanion/generated/assets.gen.dart';
 import 'package:wothcompanion/interface/interface.dart';
-import 'package:wothcompanion/interface/values.dart';
-import 'package:wothcompanion/widgets/icons/icon.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
+import 'package:wothcompanion/widgets/icon/icon.dart';
 
 class WidgetIconShield extends WidgetIcon {
   const WidgetIconShield(

@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:wothcompanion/interface/settings.dart';
 import 'package:wothcompanion/widgets/app/bar_app.dart';
 import 'package:wothcompanion/widgets/app/scaffold.dart';
-import 'package:wothcompanion/widgets/dropdown/drop_down.dart';
-import 'package:wothcompanion/widgets/dropdown/drop_down_item.dart';
+import 'package:wothcompanion/widgets/handling/drop_down.dart';
+import 'package:wothcompanion/widgets/handling/drop_down_item.dart';
 import 'package:wothcompanion/widgets/section/section_tap_align.dart';
 import 'package:wothcompanion/widgets/title/title.dart';
 

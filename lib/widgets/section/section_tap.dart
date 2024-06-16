@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/app/padding.dart';
 
 abstract class WidgetSectionTap extends StatelessWidget {

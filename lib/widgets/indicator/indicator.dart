@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wothcompanion/generated/assets.gen.dart';
 import 'package:wothcompanion/interface/interface.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 
 class WidgetIndicator extends StatelessWidget {
   final bool _active;

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/app/margin.dart';
-import 'package:wothcompanion/widgets/icons/icon_shield.dart';
+import 'package:wothcompanion/widgets/icon/icon_shield.dart';
 import 'package:wothcompanion/widgets/section/section_tap.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
 

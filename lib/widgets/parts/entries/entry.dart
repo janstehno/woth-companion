@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wothcompanion/interface/values.dart';
 import 'package:wothcompanion/miscellaneous/utils.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/model/translatables/translatable.dart';
 import 'package:wothcompanion/widgets/app/padding.dart';
 

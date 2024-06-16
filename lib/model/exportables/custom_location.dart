@@ -4,8 +4,8 @@ import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/helpers/json.dart';
-import 'package:wothcompanion/interface/values.dart';
 import 'package:wothcompanion/miscellaneous/enums.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/model/exportables/exportable.dart';
 
 class CustomLocation extends Exportable {

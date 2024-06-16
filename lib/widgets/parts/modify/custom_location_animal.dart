@@ -3,7 +3,7 @@ import 'package:wothcompanion/generated/assets.gen.dart';
 import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
 import 'package:wothcompanion/model/exportables/custom_location.dart';
-import 'package:wothcompanion/widgets/icons/icon.dart';
+import 'package:wothcompanion/widgets/icon/icon.dart';
 import 'package:wothcompanion/widgets/parts/animal/animal_trophy_rating.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/interface/interface.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/button/button.dart';
-import 'package:wothcompanion/widgets/icons/icon.dart';
+import 'package:wothcompanion/widgets/icon/icon.dart';
 
 class WidgetButtonIcon extends WidgetButton {
   final String _icon;

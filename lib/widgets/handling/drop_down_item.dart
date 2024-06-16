@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wothcompanion/interface/interface.dart';
 import 'package:wothcompanion/interface/style.dart';
-import 'package:wothcompanion/interface/values.dart';
+import 'package:wothcompanion/miscellaneous/values.dart';
 import 'package:wothcompanion/widgets/app/padding.dart';
 import 'package:wothcompanion/widgets/text/text.dart';
 
