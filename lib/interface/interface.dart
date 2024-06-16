@@ -33,8 +33,8 @@ class Interface {
   static const Color markerBuilding = Color(0xFF83C3FF);
   static const Color markerAnimal = primary;
 
-  static const Color odd = dark1A;
-  static const Color even = dark12;
+  static Color odd = primaryDark.withOpacity(0.6);
+  static Color even = primaryDark.withOpacity(0.4);
 
   static Color title = const Color(0xFF202D21).withOpacity(0.4);
   static Color subtitle = title.withOpacity(0.8);
