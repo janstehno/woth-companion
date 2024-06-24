@@ -151,6 +151,7 @@ class ActivityHomeState extends State<ActivityHome> {
 
   Widget _buildCenter() {
     Size screenSize = MediaQuery.of(context).size;
+    EdgeInsets screenPadding = MediaQuery.of(context).padding;
     double menuWidth = screenSize.width > 500 ? 0.6 * screenSize.width : screenSize.width;
 
     return Stack(
@@ -167,7 +168,7 @@ class ActivityHomeState extends State<ActivityHome> {
         ),
         AnimatedPositioned(
           width: menuWidth,
-          height: screenSize.height,
+          height: screenSize.height - screenPadding.bottom,
           left: _menuOpened ? 0 : -menuWidth,
           duration: const Duration(milliseconds: 400),
           child: WidgetHomeMenu(callback: () {
